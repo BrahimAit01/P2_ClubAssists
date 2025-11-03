@@ -1,44 +1,47 @@
+using ClubAssist.Controller;
 using ClubAssist.Pages;
+using System;
+using System.Windows.Forms;
 
 namespace ClubAssist
 {
     public partial class Startpagina : Form
     {
-        string username = "Brahim";
-        string password = "Brahim";
+        private readonly UserController userController = new UserController();
 
         public Startpagina()
         {
             InitializeComponent();
         }
 
-        public void Startpagina_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRegistratie_Click_1(object sender, EventArgs e)
         {
-            // Object gemaakt van form Registratiescherm
             Registratiescherm registratiescherm = new Registratiescherm();
-            // Openen van het registratiescherm formulier
             registratiescherm.ShowDialog();
         }
 
         private void btnInloggen_Click(object sender, EventArgs e)
         {
-            string inputUsername = txtUsername.Text;
-            string inputPassword = txtPassword.Text;
+            string inputUsername = txtUsername.Text.Trim();
+            string inputPassword = txtPassword.Text.Trim();
 
-            if (inputUsername == username && inputPassword == password)
+            bool isValid = userController.VerifyLogin(inputUsername, inputPassword);
+
+            if (isValid)
             {
+                MessageBox.Show("Succesvol ingelogd!");
+
+                // Hier kun je kiezen welke scherm je opent
                 frmActiviteitenschermVrijwilliger vrijwilligerscherm = new frmActiviteitenschermVrijwilliger();
                 vrijwilligerscherm.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Verkeerde invoer, probeer het opnieuw!", "Foutmelding", MessageBoxButtons.OK);
+                MessageBox.Show("Verkeerde gebruikersnaam of wachtwoord!", "Foutmelding", MessageBoxButtons.OK);
             }
+        }
+        private void Startpagina_Load(object sender, EventArgs e)
+        {
         }
 
         private void btnTESTORGANISATOR_Click(object sender, EventArgs e)
@@ -46,6 +49,5 @@ namespace ClubAssist
             ClubAssist.View.Organisator.frmActiviteitenschermOrganisator organisatorscherm = new View.Organisator.frmActiviteitenschermOrganisator();
             organisatorscherm.ShowDialog();
         }
-
     }
 }
