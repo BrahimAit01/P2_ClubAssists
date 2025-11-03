@@ -42,10 +42,9 @@
             // 
             btnVerwijderen.BackColor = Color.DarkOrange;
             btnVerwijderen.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVerwijderen.Location = new Point(483, 539);
-            btnVerwijderen.Margin = new Padding(3, 4, 3, 4);
+            btnVerwijderen.Location = new Point(443, 415);
             btnVerwijderen.Name = "btnVerwijderen";
-            btnVerwijderen.Size = new Size(184, 57);
+            btnVerwijderen.Size = new Size(161, 43);
             btnVerwijderen.TabIndex = 35;
             btnVerwijderen.Text = "Activiteit Verwijderen";
             btnVerwijderen.UseVisualStyleBackColor = false;
@@ -54,19 +53,19 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(306, 5);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(298, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(351, 96);
+            pictureBox1.Size = new Size(307, 72);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 34;
             pictureBox1.TabStop = false;
             // 
             // lvActivities
             // 
-            lvActivities.Location = new Point(12, 91);
+            lvActivities.Location = new Point(12, 96);
+            lvActivities.Margin = new Padding(3, 2, 3, 2);
             lvActivities.Name = "lvActivities";
-            lvActivities.Size = new Size(776, 296);
+            lvActivities.Size = new Size(790, 303);
             lvActivities.TabIndex = 33;
             lvActivities.UseCompatibleStateImageBehavior = false;
             // 
@@ -74,10 +73,9 @@
             // 
             btnActiviteitAanpassen.BackColor = Color.DarkOrange;
             btnActiviteitAanpassen.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnActiviteitAanpassen.Location = new Point(694, 539);
-            btnActiviteitAanpassen.Margin = new Padding(3, 4, 3, 4);
+            btnActiviteitAanpassen.Location = new Point(640, 415);
             btnActiviteitAanpassen.Name = "btnActiviteitAanpassen";
-            btnActiviteitAanpassen.Size = new Size(184, 57);
+            btnActiviteitAanpassen.Size = new Size(161, 43);
             btnActiviteitAanpassen.TabIndex = 32;
             btnActiviteitAanpassen.Text = "Activiteit Aanpassen";
             btnActiviteitAanpassen.UseVisualStyleBackColor = false;
@@ -87,10 +85,9 @@
             // 
             btnActiviteitAanmaken.BackColor = Color.DarkOrange;
             btnActiviteitAanmaken.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnActiviteitAanmaken.Location = new Point(262, 539);
-            btnActiviteitAanmaken.Margin = new Padding(3, 4, 3, 4);
+            btnActiviteitAanmaken.Location = new Point(227, 415);
             btnActiviteitAanmaken.Name = "btnActiviteitAanmaken";
-            btnActiviteitAanmaken.Size = new Size(184, 57);
+            btnActiviteitAanmaken.Size = new Size(161, 43);
             btnActiviteitAanmaken.TabIndex = 31;
             btnActiviteitAanmaken.Text = "Activiteit Toevoegen";
             btnActiviteitAanmaken.UseVisualStyleBackColor = false;
@@ -100,10 +97,9 @@
             // 
             btnRefresh.BackColor = Color.DarkOrange;
             btnRefresh.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRefresh.Location = new Point(38, 539);
-            btnRefresh.Margin = new Padding(3, 4, 3, 4);
+            btnRefresh.Location = new Point(11, 415);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(184, 57);
+            btnRefresh.Size = new Size(161, 43);
             btnRefresh.TabIndex = 30;
             btnRefresh.Text = "Beschikbare Activiteiten";
             btnRefresh.UseVisualStyleBackColor = false;
@@ -111,17 +107,18 @@
             // 
             // frmActiviteitenschermOrganisator
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(1114, 615);
+            ClientSize = new Size(814, 465);
             Controls.Add(btnVerwijderen);
             Controls.Add(pictureBox1);
             Controls.Add(lvActivities);
             Controls.Add(btnActiviteitAanpassen);
             Controls.Add(btnActiviteitAanmaken);
             Controls.Add(btnRefresh);
-            Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmActiviteitenschermOrganisator";
             Text = "Activiteiten Organisator";
             Load += frmActiviteitenschermOrganisator_Load;

@@ -52,7 +52,7 @@ namespace ClubAssist.View.Organisator
                 EndTime = dtpEindtijd.Value,
                 NeededVolunteers = benodigdeVrijwilligers,
                 CurrentVolunteers = 0,
-                CreatedBy = 1 // tijdelijk hardcoded, straks vervangen door logged-in organisator
+                CreatedBy = 202506 // tijdelijk hardcoded, straks vervangen door logged-in organisator
             };
 
             bool success = controller.Create(newActivity);

@@ -18,8 +18,6 @@ namespace ClubAssist.View.Organisator
 
         private void frmActiviteitenschermOrganisator_Load(object sender, EventArgs e)
         {
-            // Maximum scherm
-            this.WindowState = FormWindowState.Maximized;
 
             // Kolommen toevoegen aan de ListView (eenmalig)
             lvActivities.Columns.Add("Titel", 200);
