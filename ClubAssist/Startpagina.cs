@@ -1,9 +1,7 @@
 using ClubAssist.Controller;
 using ClubAssist.Model;
 using ClubAssist.Pages;
-using System;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using ClubAssist.View.Organisator;
 
 namespace ClubAssist
 {
@@ -90,8 +88,7 @@ namespace ClubAssist
             }
             else if (user.Role.Equals("Organisator", StringComparison.OrdinalIgnoreCase))
             {
-                ClubAssist.View.Organisator.frmActiviteitenschermOrganisator organisatorScherm =
-                    new ClubAssist.View.Organisator.frmActiviteitenschermOrganisator();
+                frmActiviteitenschermOrganisator organisatorScherm = new frmActiviteitenschermOrganisator(user.Id, user.Firstname);
                 organisatorScherm.ShowDialog();
             }
             else
@@ -106,10 +103,5 @@ namespace ClubAssist
         {
         }
 
-        private void btnTESTORGANISATOR_Click(object sender, EventArgs e)
-        {
-            ClubAssist.View.Organisator.frmActiviteitenschermOrganisator organisatorscherm = new View.Organisator.frmActiviteitenschermOrganisator();
-            organisatorscherm.ShowDialog();
-        }
     }
 }
