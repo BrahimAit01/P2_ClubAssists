@@ -16,14 +16,18 @@ namespace ClubAssist.Controller
 
             using (SqlConnection connection = new SqlConnection(conn))
             {
-                string query = @"INSERT INTO Users (Firstname, Lastname, Email, Username, [Password], [Role], Salt) 
-                                 VALUES (@Firstname, @Lastname, @Email, @Username, @Password, @Role, @Salt)";
+                string query = @"
+                    INSERT INTO tblUsers 
+                    (Firstname, Lastname, Email, Username, PhoneNumber, [Password], [Role], Salt) 
+                    VALUES 
+                    (@Firstname, @Lastname, @Email, @Username, @PhoneNumber, @Password, @Role, @Salt)";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Firstname", user.Firstname);
                 command.Parameters.AddWithValue("@Lastname", user.Lastname);
                 command.Parameters.AddWithValue("@Email", user.Email);
                 command.Parameters.AddWithValue("@Username", user.Username);
+                command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
                 command.Parameters.AddWithValue("@Password", hash);
                 command.Parameters.AddWithValue("@Role", user.Role);
                 command.Parameters.AddWithValue("@Salt", salt);
@@ -36,18 +40,17 @@ namespace ClubAssist.Controller
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show($"Fout bij registratie: {ex.Message}");
+                    MessageBox.Show($"Fout bij registratie: {ex.Message}", "Databasefout", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
         }
 
-
         public bool VerifyLogin(string username, string password)
         {
             using (SqlConnection connection = new SqlConnection(conn))
             {
-                string query = "SELECT [Password], Salt FROM Users WHERE Username = @Username";
+                string query = "SELECT [Password], Salt FROM tblUsers WHERE Username = @Username";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Username", username);
@@ -59,22 +62,21 @@ namespace ClubAssist.Controller
 
                     if (reader.Read())
                     {
-                        string storedHash = reader.GetString(0);
-                        string storedSalt = reader.GetString(1);
+                        string storedHash = reader["Password"].ToString();
+                        string storedSalt = reader["Salt"].ToString();
 
-                        // Controleer of ingevoerd wachtwoord overeenkomt
                         bool isValid = PasswordHasher.VerifyPassword(password, storedHash, storedSalt);
                         return isValid;
                     }
                     else
                     {
-                        MessageBox.Show("Gebruiker niet gevonden.");
+                        MessageBox.Show("Gebruiker niet gevonden.", "Inloggen mislukt", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return false;
                     }
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show("Fout bij inloggen: " + ex.Message);
+                    MessageBox.Show("Fout bij inloggen: " + ex.Message, "Databasefout", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }

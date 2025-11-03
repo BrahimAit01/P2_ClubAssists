@@ -110,5 +110,25 @@ namespace ClubAssist.View.Organisator
             // Functie opnieuw uitvoeren soort van refresh na aanmaken bijvoorbeeld
             LoadActivities();
         }
+
+        private void btnActiviteitAanpassen_Click(object sender, EventArgs e)
+        {
+            if (lvActivities.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selecteer eerst een activiteit om aan te passen.", "Let op", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Het ID van de geselecteerde activiteit ophalen uit de Tag
+            ListViewItem selectedItem = lvActivities.SelectedItems[0];
+            int activityId = (int)selectedItem.Tag;
+
+            // frmActiviteitAanpassen openen en het ID meegeven
+            frmActiviteitAanpassen formAanpassen = new frmActiviteitAanpassen(activityId);
+            formAanpassen.ShowDialog();
+
+            // Na sluiten: lijst vernieuwen zodat wijzigingen zichtbaar zijn
+            LoadActivities();
+        }
     }
 }

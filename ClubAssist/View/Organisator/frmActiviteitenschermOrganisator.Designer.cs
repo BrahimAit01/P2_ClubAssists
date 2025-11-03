@@ -32,7 +32,7 @@
             btnVerwijderen = new Button();
             pictureBox1 = new PictureBox();
             lvActivities = new ListView();
-            button2 = new Button();
+            btnActiviteitAanpassen = new Button();
             btnActiviteitAanmaken = new Button();
             btnRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -68,16 +68,17 @@
             lvActivities.TabIndex = 33;
             lvActivities.UseCompatibleStateImageBehavior = false;
             // 
-            // button2
+            // btnActiviteitAanpassen
             // 
-            button2.BackColor = Color.DarkOrange;
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(607, 404);
-            button2.Name = "button2";
-            button2.Size = new Size(161, 43);
-            button2.TabIndex = 32;
-            button2.Text = "Activiteit Aanpassen";
-            button2.UseVisualStyleBackColor = false;
+            btnActiviteitAanpassen.BackColor = Color.DarkOrange;
+            btnActiviteitAanpassen.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnActiviteitAanpassen.Location = new Point(607, 404);
+            btnActiviteitAanpassen.Name = "btnActiviteitAanpassen";
+            btnActiviteitAanpassen.Size = new Size(161, 43);
+            btnActiviteitAanpassen.TabIndex = 32;
+            btnActiviteitAanpassen.Text = "Activiteit Aanpassen";
+            btnActiviteitAanpassen.UseVisualStyleBackColor = false;
+            btnActiviteitAanpassen.Click += btnActiviteitAanpassen_Click;
             // 
             // btnActiviteitAanmaken
             // 
@@ -112,7 +113,7 @@
             Controls.Add(btnVerwijderen);
             Controls.Add(pictureBox1);
             Controls.Add(lvActivities);
-            Controls.Add(button2);
+            Controls.Add(btnActiviteitAanpassen);
             Controls.Add(btnActiviteitAanmaken);
             Controls.Add(btnRefresh);
             Name = "frmActiviteitenschermOrganisator";
@@ -127,7 +128,7 @@
         private Button btnVerwijderen;
         private PictureBox pictureBox1;
         private ListView lvActivities;
-        private Button button2;
+        private Button btnActiviteitAanpassen;
         private Button btnActiviteitAanmaken;
         private Button btnRefresh;
     }

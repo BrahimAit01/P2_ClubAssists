@@ -33,6 +33,7 @@ namespace ClubAssist.Pages
                 Firstname = textBox1.Text.Trim(),
                 Lastname = textBox2.Text.Trim(),
                 Email = textBox3.Text.Trim(),
+                PhoneNumber = txtTelefoonnummer.Text.Trim(),
                 Username = textBox4.Text.Trim(),
                 Password = textBox5.Text.Trim(), // eventueel later gehasht
                 Role = comboBox1.SelectedItem?.ToString() ?? "Vrijwilliger"

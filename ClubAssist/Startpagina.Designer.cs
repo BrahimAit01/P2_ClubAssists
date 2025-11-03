@@ -115,7 +115,7 @@
             btnOrganisatortest.TabIndex = 24;
             btnOrganisatortest.Text = "Organisator Testomgeving";
             btnOrganisatortest.UseVisualStyleBackColor = false;
-            btnOrganisatortest.Click += btnOrganisatortest_Click;
+            btnOrganisatortest.Click += btnTESTORGANISATOR_Click;
             // 
             // Startpagina
             // 
