@@ -1,4 +1,5 @@
 using ClubAssist.Pages;
+using ClubAssist.View.Organisator;
 
 namespace ClubAssist
 {
@@ -47,5 +48,11 @@ namespace ClubAssist
             organisatorscherm.ShowDialog();
         }
 
+        private void btnOrganisatortest_Click(object sender, EventArgs e)
+        {
+            frmActiviteitenschermOrganisator organisatortest = new frmActiviteitenschermOrganisator();
+
+            organisatortest.ShowDialog();
+        }
     }
 }

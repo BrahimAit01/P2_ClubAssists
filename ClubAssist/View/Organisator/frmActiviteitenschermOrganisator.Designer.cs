@@ -33,8 +33,8 @@
             pictureBox1 = new PictureBox();
             lvActivities = new ListView();
             button2 = new Button();
-            button1 = new Button();
-            btnInloggen = new Button();
+            btnActiviteitAanmaken = new Button();
+            btnRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -79,27 +79,29 @@
             button2.Text = "Activiteit Aanpassen";
             button2.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnActiviteitAanmaken
             // 
-            button1.BackColor = Color.DarkOrange;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(229, 404);
-            button1.Name = "button1";
-            button1.Size = new Size(161, 43);
-            button1.TabIndex = 31;
-            button1.Text = "Activiteit Toevoegen";
-            button1.UseVisualStyleBackColor = false;
+            btnActiviteitAanmaken.BackColor = Color.DarkOrange;
+            btnActiviteitAanmaken.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnActiviteitAanmaken.Location = new Point(229, 404);
+            btnActiviteitAanmaken.Name = "btnActiviteitAanmaken";
+            btnActiviteitAanmaken.Size = new Size(161, 43);
+            btnActiviteitAanmaken.TabIndex = 31;
+            btnActiviteitAanmaken.Text = "Activiteit Toevoegen";
+            btnActiviteitAanmaken.UseVisualStyleBackColor = false;
+            btnActiviteitAanmaken.Click += btnActiviteitAanmaken_Click;
             // 
-            // btnInloggen
+            // btnRefresh
             // 
-            btnInloggen.BackColor = Color.DarkOrange;
-            btnInloggen.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInloggen.Location = new Point(33, 404);
-            btnInloggen.Name = "btnInloggen";
-            btnInloggen.Size = new Size(161, 43);
-            btnInloggen.TabIndex = 30;
-            btnInloggen.Text = "Beschikbare Activiteiten";
-            btnInloggen.UseVisualStyleBackColor = false;
+            btnRefresh.BackColor = Color.DarkOrange;
+            btnRefresh.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.Location = new Point(33, 404);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(161, 43);
+            btnRefresh.TabIndex = 30;
+            btnRefresh.Text = "Beschikbare Activiteiten";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // frmActiviteitenschermOrganisator
             // 
@@ -111,8 +113,8 @@
             Controls.Add(pictureBox1);
             Controls.Add(lvActivities);
             Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(btnInloggen);
+            Controls.Add(btnActiviteitAanmaken);
+            Controls.Add(btnRefresh);
             Name = "frmActiviteitenschermOrganisator";
             Text = "Activiteiten Organisator";
             Load += frmActiviteitenschermOrganisator_Load;
@@ -126,7 +128,7 @@
         private PictureBox pictureBox1;
         private ListView lvActivities;
         private Button button2;
-        private Button button1;
-        private Button btnInloggen;
+        private Button btnActiviteitAanmaken;
+        private Button btnRefresh;
     }
 }

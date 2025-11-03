@@ -98,5 +98,17 @@ namespace ClubAssist.View.Organisator
                 MessageBox.Show("Er is iets misgegaan bij het verwijderen.", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnActiviteitAanmaken_Click(object sender, EventArgs e)
+        {
+            frmActiviteitAanmaken activiteitAanmaken = new frmActiviteitAanmaken();
+            activiteitAanmaken.ShowDialog();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            // Functie opnieuw uitvoeren soort van refresh na aanmaken bijvoorbeeld
+            LoadActivities();
+        }
     }
 }

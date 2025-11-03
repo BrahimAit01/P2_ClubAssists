@@ -10,14 +10,47 @@ namespace ClubAssist.Controller
     {
         private string conn = "Data Source=localhost;Database=dbClubAssist;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
 
-        // Functie om alle activiteiten op te halen
+        // 🟩 CREATE - Nieuwe activiteit toevoegen
+        public bool Create(ActivitiesModel activity)
+        {
+            using (SqlConnection connection = new SqlConnection(conn))
+            {
+                string query = @"INSERT INTO tblActivities 
+                                 (Title, Description, Location, StartTime, EndTime, NeededVolunteers, CurrentVolunteers, CreatedBy)
+                                 VALUES (@Title, @Description, @Location, @StartTime, @EndTime, @NeededVolunteers, @CurrentVolunteers, @CreatedBy)";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Title", activity.Title);
+                command.Parameters.AddWithValue("@Description", activity.Description);
+                command.Parameters.AddWithValue("@Location", activity.Location);
+                command.Parameters.AddWithValue("@StartTime", activity.StartTime);
+                command.Parameters.AddWithValue("@EndTime", activity.EndTime);
+                command.Parameters.AddWithValue("@NeededVolunteers", activity.NeededVolunteers);
+                command.Parameters.AddWithValue("@CurrentVolunteers", 0);
+                command.Parameters.AddWithValue("@CreatedBy", activity.CreatedBy);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show($"Fout bij het toevoegen van de activiteit: {ex.Message}");
+                    return false;
+                }
+            }
+        }
+
+        // 🟨 READ - Alle activiteiten ophalen (met kolomnamen)
         public List<ActivitiesModel> Read()
         {
             List<ActivitiesModel> activities = new List<ActivitiesModel>();
 
             using (SqlConnection connection = new SqlConnection(conn))
             {
-                string query = "SELECT ActivityId, Title, Description, Location, StartTime, EndTime, NeededVolunteers, CurrentVolunteers, CreatedBy FROM tblActivities";
+                string query = "SELECT * FROM tblActivities";
 
                 SqlCommand command = new SqlCommand(query, connection);
 
@@ -30,15 +63,15 @@ namespace ClubAssist.Controller
                     {
                         ActivitiesModel activity = new ActivitiesModel
                         {
-                            ActivityId = reader.GetInt32(0),
-                            Title = reader.GetString(1),
-                            Description = reader.GetString(2),
-                            Location = reader.GetString(3),
-                            StartTime = reader.GetDateTime(4),
-                            EndTime = reader.GetDateTime(5),
-                            NeededVolunteers = reader.GetInt32(6),
-                            CurrentVolunteers = reader.GetInt32(7),
-                            CreatedBy = reader.GetInt32(8)
+                            ActivityId = Convert.ToInt32(reader["ActivityId"]),
+                            Title = reader["Title"].ToString(),
+                            Description = reader["Description"].ToString(),
+                            Location = reader["Location"].ToString(),
+                            StartTime = Convert.ToDateTime(reader["StartTime"]),
+                            EndTime = Convert.ToDateTime(reader["EndTime"]),
+                            NeededVolunteers = Convert.ToInt32(reader["NeededVolunteers"]),
+                            CurrentVolunteers = Convert.ToInt32(reader["CurrentVolunteers"]),
+                            CreatedBy = Convert.ToInt32(reader["CreatedBy"])
                         };
 
                         activities.Add(activity);
@@ -53,7 +86,48 @@ namespace ClubAssist.Controller
             }
         }
 
-        // Functie om een activiteit te verwijderen
+        // 🟦 UPDATE - Activiteit bijwerken met parameters
+        public bool Update(ActivitiesModel activity)
+        {
+            using (SqlConnection connection = new SqlConnection(conn))
+            {
+                string query = @"UPDATE tblActivities SET
+                                    Title = @Title,
+                                    Description = @Description,
+                                    Location = @Location,
+                                    StartTime = @StartTime,
+                                    EndTime = @EndTime,
+                                    NeededVolunteers = @NeededVolunteers,
+                                    CurrentVolunteers = @CurrentVolunteers,
+                                    CreatedBy = @CreatedBy
+                                 WHERE ActivityId = @ActivityId";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@ActivityId", activity.ActivityId);
+                command.Parameters.AddWithValue("@Title", activity.Title);
+                command.Parameters.AddWithValue("@Description", activity.Description);
+                command.Parameters.AddWithValue("@Location", activity.Location);
+                command.Parameters.AddWithValue("@StartTime", activity.StartTime);
+                command.Parameters.AddWithValue("@EndTime", activity.EndTime);
+                command.Parameters.AddWithValue("@NeededVolunteers", activity.NeededVolunteers);
+                command.Parameters.AddWithValue("@CurrentVolunteers", activity.CurrentVolunteers);
+                command.Parameters.AddWithValue("@CreatedBy", activity.CreatedBy);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show($"Fout bij het updaten van de activiteit: {ex.Message}");
+                    return false;
+                }
+            }
+        }
+
+        // 🟥 DELETE - Activiteit verwijderen met parameter
         public bool Delete(int activityId)
         {
             using (SqlConnection connection = new SqlConnection(conn))

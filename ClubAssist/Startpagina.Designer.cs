@@ -36,6 +36,7 @@
             label1 = new Label();
             btnRegistratie = new Button();
             btnInloggen = new Button();
+            btnOrganisatortest = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -104,12 +105,25 @@
             btnInloggen.UseVisualStyleBackColor = false;
             btnInloggen.Click += btnInloggen_Click;
             // 
+            // btnOrganisatortest
+            // 
+            btnOrganisatortest.BackColor = Color.DarkOrange;
+            btnOrganisatortest.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnOrganisatortest.Location = new Point(617, 12);
+            btnOrganisatortest.Name = "btnOrganisatortest";
+            btnOrganisatortest.Size = new Size(124, 55);
+            btnOrganisatortest.TabIndex = 24;
+            btnOrganisatortest.Text = "Organisator Testomgeving";
+            btnOrganisatortest.UseVisualStyleBackColor = false;
+            btnOrganisatortest.Click += btnOrganisatortest_Click;
+            // 
             // Startpagina
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(753, 282);
+            Controls.Add(btnOrganisatortest);
             Controls.Add(btnRegistratie);
             Controls.Add(btnInloggen);
             Controls.Add(label2);
@@ -134,5 +148,6 @@
         private Label label1;
         private Button btnRegistratie;
         private Button btnInloggen;
+        private Button btnOrganisatortest;
     }
 }
