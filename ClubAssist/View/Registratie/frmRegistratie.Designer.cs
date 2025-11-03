@@ -52,9 +52,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(197, 12);
+            pictureBox1.Location = new Point(225, 16);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(307, 72);
+            pictureBox1.Size = new Size(351, 96);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -62,107 +63,113 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(104, 117);
+            label1.Location = new Point(119, 156);
             label1.Name = "label1";
-            label1.Size = new Size(64, 15);
+            label1.Size = new Size(80, 20);
             label1.TabIndex = 7;
             label1.Text = "Voornaam:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(174, 114);
+            textBox1.Location = new Point(199, 152);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(400, 23);
+            textBox1.Size = new Size(457, 27);
             textBox1.TabIndex = 6;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(93, 155);
+            label2.Location = new Point(106, 207);
             label2.Name = "label2";
-            label2.Size = new Size(75, 15);
+            label2.Size = new Size(92, 20);
             label2.TabIndex = 9;
             label2.Text = "Achternaam:";
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(174, 152);
+            textBox2.Location = new Point(199, 203);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(400, 23);
+            textBox2.Size = new Size(457, 27);
             textBox2.TabIndex = 8;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(129, 194);
+            label3.Location = new Point(147, 259);
             label3.Name = "label3";
-            label3.Size = new Size(39, 15);
+            label3.Size = new Size(49, 20);
             label3.TabIndex = 11;
             label3.Text = "Email:";
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(174, 191);
+            textBox3.Location = new Point(199, 255);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(400, 23);
+            textBox3.Size = new Size(457, 27);
             textBox3.TabIndex = 10;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(72, 232);
+            label4.Location = new Point(82, 309);
             label4.Name = "label4";
-            label4.Size = new Size(96, 15);
+            label4.Size = new Size(119, 20);
             label4.TabIndex = 13;
             label4.Text = "Gebruikersnaam:";
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(174, 229);
+            textBox4.Location = new Point(199, 305);
+            textBox4.Margin = new Padding(3, 4, 3, 4);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(400, 23);
+            textBox4.Size = new Size(457, 27);
             textBox4.TabIndex = 12;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(90, 270);
+            label5.Location = new Point(103, 360);
             label5.Name = "label5";
-            label5.Size = new Size(78, 15);
+            label5.Size = new Size(96, 20);
             label5.TabIndex = 15;
             label5.Text = "Wachtwoord:";
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(174, 267);
+            textBox5.Location = new Point(199, 356);
+            textBox5.Margin = new Padding(3, 4, 3, 4);
             textBox5.Name = "textBox5";
             textBox5.PasswordChar = '*';
-            textBox5.Size = new Size(400, 23);
+            textBox5.Size = new Size(457, 27);
             textBox5.TabIndex = 14;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(43, 308);
+            label6.Location = new Point(49, 411);
             label6.Name = "label6";
-            label6.Size = new Size(125, 15);
+            label6.Size = new Size(156, 20);
             label6.TabIndex = 17;
             label6.Text = "Bevestig Wachtwoord:";
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(174, 305);
+            textBox6.Location = new Point(199, 407);
+            textBox6.Margin = new Padding(3, 4, 3, 4);
             textBox6.Name = "textBox6";
             textBox6.PasswordChar = '*';
-            textBox6.Size = new Size(400, 23);
+            textBox6.Size = new Size(457, 27);
             textBox6.TabIndex = 16;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(141, 346);
+            label7.Location = new Point(161, 461);
             label7.Name = "label7";
-            label7.Size = new Size(27, 15);
+            label7.Size = new Size(34, 20);
             label7.TabIndex = 18;
             label7.Text = "Rol:";
             // 
@@ -170,16 +177,18 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Vrijwilliger", "Organisator" });
-            comboBox1.Location = new Point(174, 343);
+            comboBox1.Location = new Point(199, 457);
+            comboBox1.Margin = new Padding(3, 4, 3, 4);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(400, 23);
+            comboBox1.Size = new Size(457, 28);
             comboBox1.TabIndex = 19;
             // 
             // btnRegistratie
             // 
-            btnRegistratie.Location = new Point(174, 389);
+            btnRegistratie.Location = new Point(199, 519);
+            btnRegistratie.Margin = new Padding(3, 4, 3, 4);
             btnRegistratie.Name = "btnRegistratie";
-            btnRegistratie.Size = new Size(92, 40);
+            btnRegistratie.Size = new Size(105, 53);
             btnRegistratie.TabIndex = 21;
             btnRegistratie.Text = "Annuleren";
             btnRegistratie.UseVisualStyleBackColor = true;
@@ -188,19 +197,20 @@
             // 
             button1.BackColor = Color.DarkOrange;
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(482, 389);
+            button1.Location = new Point(551, 519);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(92, 40);
+            button1.Size = new Size(105, 53);
             button1.TabIndex = 20;
             button1.Text = "Registreren";
             button1.UseVisualStyleBackColor = false;
             // 
             // Registratiescherm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(657, 450);
+            ClientSize = new Size(751, 600);
             Controls.Add(btnRegistratie);
             Controls.Add(button1);
             Controls.Add(comboBox1);
@@ -218,8 +228,10 @@
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(pictureBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Registratiescherm";
             Text = "Registratiescherm";
+            Load += Registratiescherm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
