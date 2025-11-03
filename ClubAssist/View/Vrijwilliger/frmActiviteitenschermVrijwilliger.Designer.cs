@@ -43,58 +43,65 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 30F);
-            label1.Location = new Point(219, 32);
+            label1.Location = new Point(250, 43);
             label1.Name = "label1";
-            label1.Size = new Size(0, 54);
+            label1.Size = new Size(0, 67);
             label1.TabIndex = 0;
             // 
             // btnInloggen
             // 
             btnInloggen.BackColor = Color.DarkOrange;
             btnInloggen.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInloggen.Location = new Point(33, 400);
+            btnInloggen.Location = new Point(38, 533);
+            btnInloggen.Margin = new Padding(3, 4, 3, 4);
             btnInloggen.Name = "btnInloggen";
-            btnInloggen.Size = new Size(161, 43);
+            btnInloggen.Size = new Size(184, 57);
             btnInloggen.TabIndex = 23;
             btnInloggen.Text = "Beschikbare Activiteiten";
             btnInloggen.UseVisualStyleBackColor = false;
+            btnInloggen.Click += btnAlleActiviteiten_Click;
             // 
             // button1
             // 
             button1.BackColor = Color.DarkOrange;
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(229, 400);
+            button1.Location = new Point(262, 533);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(161, 43);
+            button1.Size = new Size(184, 57);
             button1.TabIndex = 24;
             button1.Text = "Mijn Activiteiten";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += btnMijnActiviteiten_Click;
             // 
             // button2
             // 
             button2.BackColor = Color.DarkOrange;
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(607, 400);
+            button2.Location = new Point(694, 533);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(161, 43);
+            button2.Size = new Size(184, 57);
             button2.TabIndex = 26;
             button2.Text = "Uitloggen";
             button2.UseVisualStyleBackColor = false;
             // 
             // lvActivities
             // 
-            lvActivities.Location = new Point(33, 89);
+            lvActivities.Location = new Point(38, 119);
+            lvActivities.Margin = new Padding(3, 4, 3, 4);
             lvActivities.Name = "lvActivities";
-            lvActivities.Size = new Size(735, 296);
+            lvActivities.Size = new Size(839, 393);
             lvActivities.TabIndex = 27;
             lvActivities.UseCompatibleStateImageBehavior = false;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(268, 0);
+            pictureBox1.Location = new Point(306, 0);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(307, 72);
+            pictureBox1.Size = new Size(351, 96);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 28;
             pictureBox1.TabStop = false;
@@ -103,19 +110,21 @@
             // 
             button3.BackColor = Color.DarkOrange;
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(424, 400);
+            button3.Location = new Point(485, 533);
+            button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(161, 43);
+            button3.Size = new Size(184, 57);
             button3.TabIndex = 29;
             button3.Text = "Aanmelden Activiteit";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += btnAanmelden_Click;
             // 
             // frmActiviteitenschermVrijwilliger
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(814, 456);
+            ClientSize = new Size(930, 608);
             Controls.Add(button3);
             Controls.Add(pictureBox1);
             Controls.Add(lvActivities);
@@ -123,9 +132,11 @@
             Controls.Add(button1);
             Controls.Add(btnInloggen);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmActiviteitenschermVrijwilliger";
             Text = "Activiteiten Vrijwilliger";
             Load += frmActiviteitenscherm_Load;
+            Click += btnMijnActiviteiten_Click;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

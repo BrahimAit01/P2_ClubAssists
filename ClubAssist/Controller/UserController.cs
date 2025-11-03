@@ -82,5 +82,46 @@ namespace ClubAssist.Controller
                 }
             }
         }
+
+        public modelUser GetUserByUsername(string username)
+        {
+            using (SqlConnection connection = new SqlConnection(conn))
+            {
+                string query = @"SELECT UserId, Firstname, Lastname, Email, Username, PhoneNumber, [Password], [Role], Salt 
+                         FROM tblUsers WHERE Username = @Username";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Username", username);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        return new modelUser
+                        {
+                            Id = reader.GetInt32(0),
+                            Firstname = reader.GetString(1),
+                            Lastname = reader.GetString(2),
+                            Email = reader.GetString(3),
+                            Username = reader.GetString(4),
+                            PhoneNumber = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                            Password = reader.GetString(6),
+                            Role = reader.GetString(7),
+                            Salt = reader.IsDBNull(8) ? string.Empty : reader.GetString(8)
+                        };
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Fout bij ophalen van gebruiker: " + ex.Message);
+                }
+            }
+
+            return null;
+        }
+
     }
 }
