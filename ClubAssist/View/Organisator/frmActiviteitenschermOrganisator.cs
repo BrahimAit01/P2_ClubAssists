@@ -8,12 +8,17 @@ namespace ClubAssist.View.Organisator
 {
     public partial class frmActiviteitenschermOrganisator : Form
     {
+        private readonly int _ingelogdeOrganisatorId;
+        private readonly string _ingelogdeOrganisatorNaam;
         private ActivitiesController activiteitenController;
 
-        public frmActiviteitenschermOrganisator()
+        public frmActiviteitenschermOrganisator(int organisatorId, string naam)
         {
             InitializeComponent();
+            _ingelogdeOrganisatorId = organisatorId;
+            _ingelogdeOrganisatorNaam = naam;
             activiteitenController = new ActivitiesController();
+
         }
 
         private void frmActiviteitenschermOrganisator_Load(object sender, EventArgs e)
@@ -99,7 +104,7 @@ namespace ClubAssist.View.Organisator
 
         private void btnActiviteitAanmaken_Click(object sender, EventArgs e)
         {
-            frmActiviteitAanmaken activiteitAanmaken = new frmActiviteitAanmaken();
+            frmActiviteitAanmaken activiteitAanmaken = new frmActiviteitAanmaken(_ingelogdeOrganisatorId, _ingelogdeOrganisatorNaam);
             activiteitAanmaken.ShowDialog();
         }
 

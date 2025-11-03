@@ -8,14 +8,21 @@ namespace ClubAssist.View.Organisator
     public partial class frmActiviteitAanmaken : Form
     {
         private readonly ActivitiesController controller = new ActivitiesController();
+        private readonly int _ingelogdeOrganisatorId;
+        private readonly string _ingelogdeOrganisatorNaam;
 
-        public frmActiviteitAanmaken()
+        public frmActiviteitAanmaken(int organisatorId, string naam)
         {
             InitializeComponent();
+            _ingelogdeOrganisatorId = organisatorId;
+            _ingelogdeOrganisatorNaam = naam;
+
         }
 
         private void frmActiviteitAanmaken_Load(object sender, EventArgs e)
         {
+            this.Text = $"Activiteitenscherm - Ingelogd als {_ingelogdeOrganisatorNaam}";
+
             // Vul combobox met waarden van 1 t/m 15 voor vrijwilligers
             for (int i = 1; i <= 15; i++)
             {
@@ -52,7 +59,7 @@ namespace ClubAssist.View.Organisator
                 EndTime = dtpEindtijd.Value,
                 NeededVolunteers = benodigdeVrijwilligers,
                 CurrentVolunteers = 0,
-                CreatedBy = 202506 // tijdelijk hardcoded, straks vervangen door logged-in organisator
+                CreatedBy = _ingelogdeOrganisatorId 
             };
 
             bool success = controller.Create(newActivity);
