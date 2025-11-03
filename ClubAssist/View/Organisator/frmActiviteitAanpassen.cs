@@ -37,7 +37,7 @@ namespace ClubAssist.View.Organisator
                 txtLocatie.Text = activity.Location;
                 dtpStarttijd.Value = activity.StartTime;
                 dtpEindtijd.Value = activity.EndTime;
-                cbBenodigd.SelectedItem = activity.NeededVolunteers.ToString();
+                cbBenodigd.SelectedItem = activity.NeededVolunteers;
             }
             else
             {
@@ -65,7 +65,7 @@ namespace ClubAssist.View.Organisator
                 StartTime = dtpStarttijd.Value,
                 EndTime = dtpEindtijd.Value,
                 NeededVolunteers = Convert.ToInt32(cbBenodigd.SelectedItem),
-                CurrentVolunteers = activityFromDb.CurrentVolunteers,
+                CurrentVolunteers = activityFromDb.CurrentVolunteers, // behouden zoals in DB
                 CreatedBy = activityFromDb.CreatedBy
             };
 
