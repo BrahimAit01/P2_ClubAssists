@@ -2,13 +2,15 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace ClubAssist.Controller
 {
+
     internal class ActivitiesController
     {
-        private string conn = "Data Source=localhost;Database=dbClubAssist;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
+        private readonly string conn = ConfigurationManager.ConnectionStrings["dbClubAssist"].ConnectionString;
 
         // 🟩 CREATE - Nieuwe activiteit toevoegen
         public bool Create(ActivitiesModel activity)
