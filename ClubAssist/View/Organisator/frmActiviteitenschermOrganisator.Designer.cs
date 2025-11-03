@@ -62,9 +62,9 @@
             // 
             // lvActivities
             // 
-            lvActivities.Location = new Point(33, 93);
+            lvActivities.Location = new Point(12, 91);
             lvActivities.Name = "lvActivities";
-            lvActivities.Size = new Size(735, 296);
+            lvActivities.Size = new Size(776, 296);
             lvActivities.TabIndex = 33;
             lvActivities.UseCompatibleStateImageBehavior = false;
             // 
