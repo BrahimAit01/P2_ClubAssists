@@ -2,6 +2,8 @@ using ClubAssist.Controller;
 using ClubAssist.Model;
 using ClubAssist.Pages;
 using ClubAssist.View.Organisator;
+using System;
+using System.Windows.Forms;
 
 namespace ClubAssist
 {
@@ -25,20 +27,15 @@ namespace ClubAssist
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            // 1?? Validatie
             if (!ValidateInput(username, password))
                 return;
 
-            // 2?? Authenticatie
             var user = AuthenticateUser(username, password);
-
             if (user == null)
                 return;
 
-            // 3?? Login afhandelen
             HandleLogin(user);
         }
-
 
         private bool ValidateInput(string username, string password)
         {
@@ -48,7 +45,6 @@ namespace ClubAssist
                     "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-
             return true;
         }
 
@@ -80,28 +76,38 @@ namespace ClubAssist
             MessageBox.Show($"Welkom {user.Firstname}!", "Succesvol ingelogd",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            this.Hide(); // login scherm verbergen
+
             if (user.Role.Equals("Vrijwilliger", StringComparison.OrdinalIgnoreCase))
             {
                 frmActiviteitenschermVrijwilliger vrijwilligerScherm =
                     new frmActiviteitenschermVrijwilliger(user.Id, user.Firstname);
-                vrijwilligerScherm.ShowDialog();
+
+                // Zorg dat login-scherm weer zichtbaar wordt bij uitloggen
+                vrijwilligerScherm.FormClosed += (s, args) => this.Show();
+
+                vrijwilligerScherm.Show();
             }
             else if (user.Role.Equals("Organisator", StringComparison.OrdinalIgnoreCase))
             {
-                frmActiviteitenschermOrganisator organisatorScherm = new frmActiviteitenschermOrganisator(user.Id, user.Firstname);
-                organisatorScherm.ShowDialog();
+                frmActiviteitenschermOrganisator organisatorScherm =
+                    new frmActiviteitenschermOrganisator(user.Id, user.Firstname);
+
+                // Login-scherm weer tonen bij uitloggen
+                organisatorScherm.FormClosed += (s, args) => this.Show();
+
+                organisatorScherm.Show();
             }
             else
             {
                 MessageBox.Show("Onbekende gebruikersrol.",
                     "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Show(); // login weer zichtbaar
             }
         }
-
 
         private void Startpagina_Load(object sender, EventArgs e)
         {
         }
-
     }
 }

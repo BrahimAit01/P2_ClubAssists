@@ -133,5 +133,24 @@ namespace ClubAssist.View.Organisator
             // Na sluiten: lijst vernieuwen zodat wijzigingen zichtbaar zijn
             LoadActivities();
         }
+
+        private void btnToonVrijwilligers_Click(object sender, EventArgs e)
+        {
+            if (lvActivities.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selecteer eerst een activiteit.", "Geen selectie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int selectedActivityId = (int)lvActivities.SelectedItems[0].Tag;
+
+            frmVrijwilligersPerActiviteit frmVrijwilligersTonen = new frmVrijwilligersPerActiviteit(selectedActivityId);
+            frmVrijwilligersTonen.ShowDialog();
+        }
+
+        private void pbUitloggen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

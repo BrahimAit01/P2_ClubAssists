@@ -29,6 +29,7 @@ namespace ClubAssist.View.Organisator
                 cbBenodigd.Items.Add(i);
             }
 
+            cbBenodigd.DropDownStyle = ComboBoxStyle.DropDownList;
             cbBenodigd.SelectedIndex = 0;
         }
 

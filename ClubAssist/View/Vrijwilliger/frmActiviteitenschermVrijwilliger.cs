@@ -24,7 +24,7 @@ namespace ClubAssist.Pages
         private void frmActiviteitenscherm_Load(object sender, EventArgs e)
         {
             this.Text = $"Activiteitenscherm - Ingelogd als {_ingelogdeGebruikerVoornaam}";
-            LaadAlleActiviteiten(); 
+            LaadAlleActiviteiten();
         }
 
         private void btnAlleActiviteiten_Click(object sender, EventArgs e)
@@ -140,6 +140,14 @@ namespace ClubAssist.Pages
             }
         }
 
+        private void btnUitloggen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void pbUitloggen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

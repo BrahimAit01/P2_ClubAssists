@@ -71,7 +71,6 @@ namespace ClubAssist.Controller
                     }
                     else
                     {
-                        MessageBox.Show("Gebruiker niet gevonden.", "Inloggen mislukt", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return false;
                     }
                 }
